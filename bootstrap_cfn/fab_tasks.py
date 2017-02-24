@@ -745,7 +745,7 @@ def cfn_create(test=False):
         if 'ssl' in cfn_config.data:
             iam.delete_ssl_certificate(cfn_config.ssl(), stack_name)
         # delete the DNS tag
-        for elb in get_public_elbs():
+        for elb in get_all_elbs():
             logger.info("Deleting '{}-{}' from '{}' ({})...".format(elb, stack_id, zone_name, zone_id))
             try:
                 print green("Removing tag stack from DNS...");
