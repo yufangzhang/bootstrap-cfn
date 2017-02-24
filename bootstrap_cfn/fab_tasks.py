@@ -748,7 +748,7 @@ def cfn_create(test=False):
         for elb in get_all_elbs():
             logger.info("Deleting '{}-{}' from '{}' ({})...".format(elb, stack_id, zone_name, zone_id))
             try:
-                print green("Removing tag stack from DNS...");
+                print green("Removing tag stack from DNS...")
                 r53_conn.delete_record(zone_name, zone_id, elb, stack_id, stack_tag, txt_tag_record)
             except boto.route53.exception.DNSServerError:
                 print red("Failed to remove DNS tag")
